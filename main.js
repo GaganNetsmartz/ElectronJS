@@ -1,10 +1,19 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 /*  
     Importing two Electron modules with CommonJS module syntax
     app: controls application's event lifecycle.
     BrowserWindow: creates and manages app windows. 
 */
+
+const menuItems = [
+    {
+        label: "About",
+    }
+]
+
+const menu = Menu.buildFromTemplate(menuItems);
+Menu.setApplicationMenu(menu);
 
 const createWindow = () => {
   const win = new BrowserWindow({
