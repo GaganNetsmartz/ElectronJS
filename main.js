@@ -18,7 +18,16 @@ The createWindow() function loads web page into a new BrowserWindow instance.
 */
 
 app.whenReady().then(() => {
-  createWindow()
-})
+    createWindow();
+  
+    app.on('activate', () => {
+      if (BrowserWindow.getAllWindows().length === 0) {
+        createWindow();
+      }
+    });
+  });
 // calling function when the app is ready
 
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') app.quit()
+  })
