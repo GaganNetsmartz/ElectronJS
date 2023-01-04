@@ -15,7 +15,7 @@ const createWindow = () => {
       },
   })
 
-  win.loadFile('index.html')
+  win.loadFile('src/index.html')
 }
 /*
 The createWindow() function loads web page into a new BrowserWindow instance.
