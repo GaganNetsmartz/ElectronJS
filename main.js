@@ -120,7 +120,24 @@ const menuItems = [
                 win3=null;
               })
         }
-    }
+    },
+    {
+        label: "Window",
+        submenu: [
+            {
+                label: "Learn More",
+                click: async () => {
+                    await shell.openExternal("https://electronjs.org");
+                }
+            },
+            {
+                role: "Minimize"
+            },
+            {
+                role: "close"
+            }            
+        ]
+    },
 ]
 
 const menu = Menu.buildFromTemplate(menuItems);
