@@ -113,6 +113,7 @@ const menuItems = [
                 parent:win,
                 modal:false 
             }); 
+            win3.webContents.openDevTools();
             win3.loadFile('src/Camera/camera.html')  
             win3.once('ready-to-show', () => win3.show()); 
             win3.on('closed',()=>{
