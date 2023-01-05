@@ -8,7 +8,37 @@ const path = require('path');
 
 const menuItems = [
     {
+        label: "Home",
+        submenu: [
+            {
+                label: "Exit"
+            }
+        ]
+    },
+    {
         label: "About",
+        submenu: [
+            {
+                label: "Contact"
+            },
+            {
+                type: "separator"
+            },
+            {
+                label: "View"
+            }
+        ]
+    },
+    {
+        label: "File",
+        submenu: [
+            {
+                label: "Save"
+            },
+            {
+                label: "Learn More"
+            }
+        ]
     }
 ]
 
