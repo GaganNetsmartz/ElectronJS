@@ -49,7 +49,7 @@ const menuItems = [
                         height: 300,
                         weight: 400
                     }); 
-                win2.loadFile('src/index.html')    
+                win2.loadFile('src/content.html')    
                 }
             }
         ]
