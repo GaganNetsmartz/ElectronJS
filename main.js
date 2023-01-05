@@ -47,10 +47,12 @@ const menuItems = [
                 click: async () => {
                     const win2 = new BrowserWindow({
                         height: 300,
-                        weight: 400
+                        weight: 400,
+                        show: false,
                     }); 
                 // win2.loadFile('src/content.html')  
-                win2.loadURL("https://facebook.com")  
+                win2.loadURL("https://facebook.com") 
+                win2.once('ready-to-show', () => win2.show()); 
                 }
             }
         ]
