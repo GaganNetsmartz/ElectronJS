@@ -41,6 +41,16 @@ const menuItems = [
                 click: async () => {
                     await shell.openExternal("https://electronjs.org");
                 }
+            },
+            {
+                label: "New Window",
+                click: async () => {
+                    const win2 = new BrowserWindow({
+                        height: 300,
+                        weight: 400
+                    }); 
+                win2.loadFile('src/index.html')    
+                }
             }
         ]
     },
