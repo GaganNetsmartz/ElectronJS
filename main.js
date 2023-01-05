@@ -49,9 +49,11 @@ const menuItems = [
                         height: 300,
                         weight: 400,
                         show: false,
+                        backgroundColor: '#2e2c29',
+                        movable: false 
                     }); 
-                // win2.loadFile('src/content.html')  
-                win2.loadURL("https://facebook.com") 
+                win2.loadFile('src/content.html')  
+                // win2.loadURL("https://facebook.com") 
                 win2.once('ready-to-show', () => win2.show()); 
                 }
             }
