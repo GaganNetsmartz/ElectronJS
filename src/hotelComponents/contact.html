@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>contact</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+
+body, html {
+      height: 100%;
+      margin: 0;
+        }
+
+    .bg {
+      /* The image used */
+      background-image: url("images/hd5.jpg");
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+.ab {
+  color: white;
+  text-align:center;
+}
+ #a {
+   color:yellow;
+ }
+
+ .fa {
+   padding: 20px;
+   font-size: 30px;
+   width: 50px;
+     text-align: center;
+     text-decoration: none;
+/*      border-radius: 10%; */
+   margin: 5px 2px;
+ }
+
+ .fa:hover {
+     opacity: 20;
+ }
+
+ .fa-facebook {
+   background: #3B5998;
+   color: white;
+ }
+
+ .fa-twitter {
+   background: #55ACEE;
+   color: white;
+ }
+
+ .fa-google {
+   background: #dd4b39;
+   color: white;
+ }
+
+ .fa-youtube {
+   background: #bb0000;
+   color: white;
+ }
+
+ .fa-instagram {
+   background: #125688;
+   color: white;
+ }
+
+    </style>
+    </head>
+    <body>
+<div class="bg">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+              <ul class="nav navbar-nav">
+            <li><a href="mainhotel.html" target="_blank">Home</a></li>
+              <li><a href="simplepage.html">About</a></li>
+                <li><a href="team.html">Team</a></li>
+
+          <li><a href="gallery.html" target="_blank">Gallery</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Rooms <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <a href="reservation.html" target="_blank" title= "Click to go to another page">
+                <li><a href="reservation.html" target="_blank">1 seated</a></li>
+                <li><a href="reservation.html" target="_blank">2 seated</a></li>
+                <li><a href="reservation.html" target="_blank">4 seated</a></li>
+                    <li><a href="reservation.html" target="_blank">others</a></li>
+                            </ul>
+            </li>
+
+
+
+          <li class="active"><a href="contact.html" >Contact Us </a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+           <div class="form-group">
+                 <div class="col-lg-6">
+            <br> <input type="text" class="form-control" placeholder="Search" name="search">
+         </div>
+                <br>   <button type="submit" class="btn btn-default">Submit</button>
+                      </div>
+        </div>
+      </nav>
+
+
+<div class="row">
+
+  <div class="col-sm-6">
+      <div class="ab">
+          <h2><b>Contact Us</b></h2>
+            <p id="a">  Sign Up  for our News Letters </p> <br>
+              <form class="form-horizontal" action="/action_page.php" target="blank">
+            <div class="form-group">
+            <label class="control-label col-md-offset-4 col-md-2" for="full name">Full Name:</label>
+            <div class="col-lg-4">
+            <input type="text" class="form-control" id="text" placeholder="Full Name" padding= 5px margin=5px name="full name">
+            </div>
+            </div>
+            <div class="form-group">
+            <label class="control-label col-md-offset-4 col-md-2" for="email">Email:</label>
+            <div class="col-lg-4">
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            </div>
+            </div>
+            <div class="form-group">
+            <label class="control-label col-md-offset-4 col-md-2" for="num">Phone Number<sup>*</sup>:</label>
+            <div class="col-lg-2">	<INPUT id="txtNumber" placeholder="your number" type="num" name="txtNumber" maxlength="10"> <br> <br> </div>
+            </div>
+              <div class="col-md-offset-6 col-md-2">
+            <button type="button" class="btn btn-success"data-toggle="modal" data-target="#myModal">Send Now</button>
+                         </div>
+                         </div>
+
+                         <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Thank you !!</h4>
+                                </div>
+                                <div class="modal-body">
+                                  <p>We will contact you soon.</p>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+                    </div>
+
+  <div class="col-sm-6">
+    <div class="ab">
+        <form class="form-horizontal" action="/action_page.php" target="blank">
+          <h2><b>Connect with Us</b></h2>
+
+      <!--    <div class="form-group">
+          <label id="a" class="control-label  col-md-12" for="phone">Phone: 9876543210</label> </div>   <br>
+            <div class="form-group">
+            <label  id="a" class="control-label  col-md-12" for="email">Email: info@bluehotel.com</label>  </div>
+               <div class="form-group">
+              <label  id="a" class="control-label col-md-12" for="address">Address: Mumbai (East)</label></div>  <br>
+
+
+  </div>   -->
+
+
+  <h4 id="a" class="control-label  col-md-12">Phone: 9876543210     </h4>
+    <h4 id="a" class="control-label  col-md-12">Email: info@bluehotel.com   </h4>
+      <h4 id="a" class="control-label  col-md-12">Address: Mumbai (East)   </h4>      <br>  <br>
+
+  <a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-google"></a>
+    <a href="#" class="fa fa-youtube"></a>
+    <a href="#" class="fa fa-instagram"></a>
+
+</div>
+
+</div>
+
+
+</body>
+</html>

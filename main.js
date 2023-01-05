@@ -1,89 +1,125 @@
 const { app, BrowserWindow, Menu, shell } = require('electron');
 const path = require('path');
-/*  
-    Importing two Electron modules with CommonJS module syntax
-    app: controls application's event lifecycle.
-    BrowserWindow: creates and manages app windows. 
-*/
 
+
+let win;
+let win3;
 const menuItems = [
     {
         label: "Home",
-        submenu: [
-            {
-                label: "Exit",
-                click: () => app.quit(),
-            },
-        ]
+        click: async () => {
+            const winHome = new BrowserWindow({
+                height: 300,
+                weight: 400,
+                show: false,
+                backgroundColor: '#2e2c29',
+            }); 
+            winHome.loadFile('src/hotelComponents/home.html')  
+            winHome.once('ready-to-show', () => winHome.show()); 
+        }
     },
     {
         label: "About",
         submenu: [
             {
-                label: "Contact"
+                label: "Contact Us",
+                click: async () => {
+                    const winContact = new BrowserWindow({
+                        height: 1200,
+                        weight: 1600,
+                        show: false,
+                        backgroundColor: '#2e2c29',
+                    }); 
+                    winContact.loadFile('src/hotelComponents/contact.html')  
+                    winContact.once('ready-to-show', () => winContact.show()); 
+                }
             },
             {
                 type: "separator"
             },
             {
-                label: "View"
-            }
-        ]
-    },
-    {
-        label: "File",
-        submenu: [
-            {
-                label: "Save"
-            },
-            {
-                label: "Learn More",
+                label: "Gallery",
                 click: async () => {
-                    await shell.openExternal("https://electronjs.org");
-                }
-            },
-            {
-                label: "New Window",
-                click: async () => {
-                    const win2 = new BrowserWindow({
-                        height: 300,
-                        weight: 400,
+                    const winContact = new BrowserWindow({
+                        height: 1200,
+                        weight: 1600,
                         show: false,
                         backgroundColor: '#2e2c29',
-                        movable: false 
                     }); 
-                win2.loadFile('src/content.html')  
-                // win2.loadURL("https://facebook.com") 
-                win2.once('ready-to-show', () => win2.show()); 
+                    winContact.loadFile('src/hotelComponents/gallery.html')  
+                    winContact.once('ready-to-show', () => winContact.show()); 
                 }
             }
         ]
     },
     {
-        label: "Window",
+        label: "Rooms",
         submenu: [
             {
-                role: "close"
+                label: "1 seated",
+                click: async () => {
+                    const winContact = new BrowserWindow({
+                        height: 1200,
+                        weight: 1600,
+                        show: false,
+                        backgroundColor: '#2e2c29',
+                    }); 
+                    winContact.loadFile('src/hotelComponents/reservation.html')  
+                    winContact.once('ready-to-show', () => winContact.show()); 
+                }
             },
             {
-                role: "Minimize"
+                type: "separator"
+            },
+            {
+                label: "2 seated",
+                click: async () => {
+                    const winContact = new BrowserWindow({
+                        height: 1200,
+                        weight: 1600,
+                        show: false,
+                        backgroundColor: '#2e2c29',
+                    }); 
+                    winContact.loadFile('src/hotelComponents/reservation.html')  
+                    winContact.once('ready-to-show', () => winContact.show()); 
+                }
+            },
+            {
+                type: "separator"
+            },
+            {
+                label: "4 seated",
+                click: async () => {
+                    const winContact = new BrowserWindow({
+                        height: 1200,
+                        weight: 1600,
+                        show: false,
+                        backgroundColor: '#2e2c29',
+                    }); 
+                    winContact.loadFile('src/hotelComponents/reservation.html')  
+                    winContact.once('ready-to-show', () => winContact.show()); 
+                }
             }
         ]
     },
     {
         label: "Open Camera",
         click: async () => {
-            const win3 = new BrowserWindow({
+             win3 = new BrowserWindow({
                 height: 300,
                 weight: 400,
                 show: false,
-                movable: false 
+                movable: false,
+                parent:win,
+                modal:false 
             }); 
-            win3.webContents.openDevTools();
             win3.loadFile('src/Camera/camera.html')  
             win3.once('ready-to-show', () => win3.show()); 
+            win3.on('closed',()=>{
+                
+                win3=null;
+              })
         }
-
     }
 ]
 
@@ -91,19 +127,21 @@ const menu = Menu.buildFromTemplate(menuItems);
 Menu.setApplicationMenu(menu);
 
 const createWindow = () => {
-  const win = new BrowserWindow({
-    width: 1000,
-    height: 600,
+   win = new BrowserWindow({
+    width: 1600,
+    height: 1000,
     webPreferences: {
         preload: path.join(__dirname, 'preload.js'),
       },
   })
 
-  win.loadFile('src/index.html')
+  win.loadFile('src/hotelComponents/home.html');
+  win.on('closed',()=>{
+    win=null;
+    win3=null;
+  })
 }
-/*
-The createWindow() function loads web page into a new BrowserWindow instance.
-*/
+
 
 app.whenReady().then(() => {
     createWindow();
@@ -114,7 +152,6 @@ app.whenReady().then(() => {
       }
     });
   });
-// calling function when the app is ready
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

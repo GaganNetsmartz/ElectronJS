@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>reservation</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+          <ul class="nav navbar-nav">
+        <li><a href="mainhotel.html" target="_blank">Home</a></li>
+          <li><a href="simplepage.html">About</a></li>
+            <li><a href="team.html">Team</a></li>
+
+      <li><a href="gallery.html" target="_blank">Gallery</a></li>
+      <li class="active" class="dropdown" ><a class="dropdown-toggle" data-toggle="dropdown" href="#">Rooms <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <a href="reservation.html" target="_blank" title= "Click to go to another page">
+            <li><a href="reservation.html">1 seated</a></li>
+            <li><a href="reservation.html">2 seated</a></li>
+            <li><a href="reservation.html">4 seated</a></li>
+                <li><a href="reservation.html">others</a></li>
+                        </ul>
+        </li>
+
+
+
+      <li><a href="contact.html" target="_blank">Contact Us </a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+       <div class="form-group">
+             <div class="col-lg-6">
+        <br> <input type="text" class="form-control" placeholder="Search" name="search">
+     </div>
+            <br>   <button type="submit" class="btn btn-default">Submit</button>
+                  </div>
+    </div>
+  </nav>
+
+  <div class="row">
+    <div class="col-sm-6">
+    <div class="column" style="background-color:#aaa;">
+      <div class="alert alert-info">
+        <strong>Personal Information.</strong>
+      </div>
+
+      <form class="form-horizontal" action="/action_page.php" target="blank">
+        <div class="form-group">
+        <label class="control-label col-md-2" for="title">Title<sup>*</sup>:</label>
+        <div class="col-lg-4">
+        <select class="form-control" id="sel1">
+        <option>Mr.</option>
+        <option>Mrs.</option>
+        <option>Miss</option>
+        <option>Dr.</option>
+          <option>Prof.</option>
+      </select>
+        </div>
+        </div>
+  <form class="form-horizontal" action="/action_page.php" target="blank">
+    <div class="form-group">
+    <label class="control-label col-md-2" for="first name">First Name:</label>
+    <div class="col-lg-4">
+    <input type="text" class="form-control" id="text" placeholder="First Name" name="first name">
+    </div>
+    </div>
+    <div class="form-group">
+    <label class="control-label col-md-2" for="last name">Last Name:</label>
+    <div class="col-lg-4">
+    <input type="text" class="form-control" id="text" placeholder="Last Name" name="last name">
+    </div>
+    </div>
+  <div class="form-group">
+  <label class="control-label col-md-2" for="email">Email:</label>
+  <div class="col-lg-4">
+  <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+  </div>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-md-2">Nationality:</label>
+  <div class="radio-inline">
+    <div class="col-lg-10">
+  <label><input type="radio" name="optradio" checked>Indian</label>
+  </div>
+  </div>
+  <div class="radio-inline">
+  <label><input type="radio" name="optradio">Non Indian</label>
+  </div>
+  <div class="radio-inline">
+  <label><input type="radio" name="optradio">Alien</label>
+  </div>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-md-2" for="num">Phone Number<sup>*</sup>:</label>
+  <div class="col-lg-2">	<INPUT id="txtNumber" placeholder="your number" type="num" name="txtNumber" maxlength="10"> <br> <br> </div>
+  </div>
+
+
+</form>
+</div>
+</div>
+
+
+<div class="col-sm-6">
+<div class="column" style="background-color:#bbb;">
+<div class="alert alert-info">
+<strong>Reservation Information.</strong>
+</div>
+    <form class="form-horizontal" action="/action_page.php" target="blank">
+      <div class="form-group">
+      <label class="control-label col-md-2" for="title">Type of Room<sup>*</sup>:</label>
+      <div class="col-lg-4">
+      <select class="form-control" id="sel1">
+          <option>Select-</option>
+      <option>Superior room</option>
+      <option>Deluxe room</option>
+      <option>Guest House</option>
+      <option>Single room</option>
+      </select>
+    </div>
+  </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-2" for="title">Bedding Type<sup>*<sup>:</label>
+      <div class="col-lg-4">
+      <select class="form-control" id="sel1">
+            <option>Select-</option>
+      <option>Single</option>
+      <option>Double</option>
+      <option>Triple</option>
+      <option>Quad</option>
+        <option>None</option>
+      </select>
+      </div>
+      </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-2" for="title">No. of rooms:</label>
+      <div class="col-lg-4">
+      <select class="form-control" id="sel1">
+            <option>Select-</option>
+      <option>1</option>
+      <option>2</option>
+      </select>
+      </div>
+      </div>
+
+      <div class="form-group">
+      <label class="control-label col-md-2" for="title">Meal Plan:</label>
+      <div class="col-lg-4">
+      <select class="form-control" id="sel1">
+            <option>Select-</option>
+      <option>Room only</option>
+      <option>Breakfast</option>
+      <option>Half Board</option>
+      <option>Full Board</option>
+      </select>
+      </div>
+      </div>
+
+  <div class="form-group">
+  <label class="control-label col-md-2" for="first name">Check-In:</label>
+  <div class="col-lg-4">
+  <input type="date" name="bday" max="1979-12-31">  </div>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-md-2" for="title">Check-Out:</label>
+  <div class="col-lg-4">
+  <input type="date" name="bday" max="1979-12-31"><br><br> </div>
+  </div>
+  </div>
+   </div>
+</div>
+
+<div class="row">
+  <div class=" col-sm-12">
+  <div class="column" style="background-color:#ffffff;">
+<h3>HUMAN VERIFICATION</h3>
+<p>Type this code:0719</p><br><br>
+Enter the random code: <br>
+<div class="col-lg-2">
+<input type="text" class="form-control" id="text" placeholder=" write code" name="code">
+</div>
+</div>
+<button type="button" class="btn btn-success"data-toggle="modal" data-target="#myModal">Submit</button>
+             </div>
+
+             <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Thank you !!</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Your Booking application has been sent.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+
+    </div>
+
+
+</div>
+</div>
+</div>
+</body>
+</html>
