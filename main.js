@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu } = require('electron');
+const { app, BrowserWindow, Menu, shell } = require('electron');
 const path = require('path');
 /*  
     Importing two Electron modules with CommonJS module syntax
@@ -11,7 +11,8 @@ const menuItems = [
         label: "Home",
         submenu: [
             {
-                label: "Exit"
+                label: "Exit",
+                click: () => app.quit(),
             }
         ]
     },
@@ -36,7 +37,10 @@ const menuItems = [
                 label: "Save"
             },
             {
-                label: "Learn More"
+                label: "Learn More",
+                click: () => {
+                    shell.openExternal("https://electronjs.org");
+                }
             }
         ]
     }
