@@ -13,7 +13,7 @@ const menuItems = [
             {
                 label: "Exit",
                 click: () => app.quit(),
-            }
+            },
         ]
     },
     {
@@ -41,6 +41,17 @@ const menuItems = [
                 click: async () => {
                     await shell.openExternal("https://electronjs.org");
                 }
+            }
+        ]
+    },
+    {
+        label: "Window",
+        submenu: [
+            {
+                role: "close"
+            },
+            {
+                role: "Minimize"
             }
         ]
     }
