@@ -38,8 +38,8 @@ const menuItems = [
             },
             {
                 label: "Learn More",
-                click: () => {
-                    shell.openExternal("https://electronjs.org");
+                click: async () => {
+                    await shell.openExternal("https://electronjs.org");
                 }
             }
         ]
