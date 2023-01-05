@@ -77,10 +77,10 @@ const menuItems = [
                 height: 300,
                 weight: 400,
                 show: false,
-                backgroundColor: '#2e2c29',
                 movable: false 
             }); 
-            win3.loadFile('src/camera.html')  
+            win3.webContents.openDevTools();
+            win3.loadFile('src/Camera/camera.html')  
             win3.once('ready-to-show', () => win3.show()); 
         }
 
