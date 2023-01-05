@@ -69,6 +69,21 @@ const menuItems = [
                 role: "Minimize"
             }
         ]
+    },
+    {
+        label: "Open Camera",
+        click: async () => {
+            const win3 = new BrowserWindow({
+                height: 300,
+                weight: 400,
+                show: false,
+                backgroundColor: '#2e2c29',
+                movable: false 
+            }); 
+            win3.loadFile('src/camera.html')  
+            win3.once('ready-to-show', () => win3.show()); 
+        }
+
     }
 ]
 
