@@ -38,6 +38,9 @@ FROM users
 GROUP BY userName
 HAVING COUNT(userName) > 1) ;
 
-working on loop and stored procedures to get the required result.
+select *,SUBSTRING(userID, 2, 2) as "UserIDN" from users  where  SUBSTRING(userID, 2, 2) in  ( SELECT   Min(SUBSTRING(userID, 2, 2)) as "UserIDN"
+FROM users
+GROUP BY userName
+HAVING COUNT(userName) > 1 )   ;
 
 3)
