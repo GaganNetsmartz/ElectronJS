@@ -24,6 +24,13 @@ select *
 from users u
 join userDetails ud on ud.userId = u.userId order by u.userId asc;
 
+select *
+from users u join userDetails ud
+on ud.userId = u.userId 
+join roles r
+on u.roleId = r.roleId
+order by u.userId asc;
+
 ----To get duplicate record with count---
 SELECT userName, COUNT(userName)
 FROM users
