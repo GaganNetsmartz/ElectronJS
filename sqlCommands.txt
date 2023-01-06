@@ -1,20 +1,43 @@
 CREATE DATABASE assignment;
 USE assignment;
 
-
+---------------------------------------------------------------------------------------------------------
 CREATE TABLE roles(roleId char(10) NOT NULL UNIQUE);
 INSERT INTO roles (roleId) VALUES ('R1');
 INSERT INTO roles (roleId) VALUES ('R2'), ('R3');
 SELECT * from roles;
 
-
+-----------------------------------------------------------------------------------------------------------
 CREATE TABLE users(userId char(10));
 CREATE TABLE users(userId char(10) NOT NULL UNIQUE, userName VARCHAR (20), roleId char(10));
 INSERT INTO users VALUES ('U1', 'Gagan', 'R1'), ('U2', 'Manpreet', 'R1'), ('U3', 'Sanjana', 'R2'), ('U4', 'Sandeep', 'R2');
 INSERT INTO users VALUES ('U5', 'Komal', 'R2'), ('U6', 'Manpreet', 'R2'), ('U7', 'Gagan', 'R2'), ('U8', 'Yashika', 'R2');
 SELECT * from users;
 
+-----------------------------------------------------------------------------------------------------------------
 CREATE TABLE userDetails(contactNum VARCHAR(10), userId char(10));
 INSERT INTO userDetails VALUES ('112233', 'U1'), ('112433', 'U2'), ('117733', 'U3'), ('102233', 'U4'), ('119933', 'U5'), ('11229993', 'U6'),
 ('1122773', 'U7'), ('1122233', 'U8');
 SELECT * from userDetails;
+
+---------------------------------------------------------------------------------
+1) To fetch all the detail
+select *
+from users u
+join userDetails ud on ud.userId = u.userId
+
+
+2) To get duplicate record with count
+SELECT userName, COUNT(userName)
+FROM users
+GROUP BY userName
+HAVING COUNT(userName) > 1;
+
+select * from users  where  userName in  ( SELECT  userName 
+FROM users
+GROUP BY userName
+HAVING COUNT(userName) > 1) ;
+
+working on loop and stored procedures to get the required result.
+
+3)
