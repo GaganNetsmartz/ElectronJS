@@ -41,8 +41,13 @@ FROM users
 GROUP BY userName
 HAVING COUNT(userName) > 1 ) ;
 
+-- to fetch single username first record entries --
+select userId from users where userId in (select min(userId) from users group by userName)
+
 -- to delete duplicate records --
-delete from users where userID in (
+delete from users where userId in (select userId from users where userId not in (select min(userId) from users group by userName))
+
+delete from users where userId in (
 select userID from users  where  SUBSTRING(userID, 2, 2)  in  ( SELECT   max(SUBSTRING(userID, 2, 2)) as "UserIDN"
 FROM users
 GROUP BY userName
