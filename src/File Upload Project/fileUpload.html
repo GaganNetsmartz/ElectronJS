@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+	<!-- https://electronjs.org/docs/tutorial
+						/security#csp-meta-tag -->
+	<meta http-equiv="Content-Security-Policy"
+		content="script-src 'self' 'unsafe-inline';" />
+</head>
+<body>
+	<h3>
+        File Upload in Electron
+    </h3>
+	<button id="upload">Upload File</button>
+
+	<!-- Adding Individual Renderer Process JS File -->
+	<script src="fileUpload.js"></script>
+</body>
+</html>
