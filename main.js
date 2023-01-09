@@ -1,6 +1,10 @@
 const { app, BrowserWindow, Menu, shell } = require('electron');
 const path = require('path');
 
+var ipc = require('electron').ipcMain;
+var os = require('os');
+var {dialog} = require('electron');
+
 
 let win;
 let win3;
@@ -148,9 +152,36 @@ const menuItems = [
                 show: false,
                 backgroundColor: '#2e2c29',
             }); 
-            winHome.loadFile('src/FileUpload/fileUpload.html')  
+            win.webContents.openDevTools();
+            winHome.loadFile('src/FileUpload/fileUpload.html');            
             winHome.once('ready-to-show', () => winHome.show()); 
-        }
+            ipc.on('open-file-dialog-for-file', function(event){
+                //checking the operating system of the user
+                
+                if(os.platform() === 'linux' || os.platform() === 'win32' || os.platform() === 'win64')
+                {
+                    dialog.showOpenDialog({
+                        properties: ['openFile']
+                    }, function(files){
+                        if(files){
+                            event.sender.send('selected-file', files[0])
+                        }
+                    })
+                }
+                else{
+                    //this is mac
+                    dialog.showOpenDialog({
+                        properties:['openFile', 'openDirectory']
+                    }, function(files){
+                        if(files)
+                        {
+                            event.sender.send('selected-file', files[0]);
+                        }
+                    })
+                }
+            })
+        }      
+
     }
 ]
 
