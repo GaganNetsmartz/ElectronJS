@@ -7,9 +7,6 @@ var {dialog} = require('electron');
 
 var mainWindow = null;
 
-
-let win;
-let win3;
 const menuItems = [
     {
         label: "Home",
