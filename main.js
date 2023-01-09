@@ -139,6 +139,19 @@ const menuItems = [
             }            
         ]
     },
+    {
+        label: "File Upload",
+        click: async () => {
+            const winHome = new BrowserWindow({
+                height: 300,
+                weight: 400,
+                show: false,
+                backgroundColor: '#2e2c29',
+            }); 
+            winHome.loadFile('src/FileUpload/fileUpload.html')  
+            winHome.once('ready-to-show', () => winHome.show()); 
+        }
+    }
 ]
 
 const menu = Menu.buildFromTemplate(menuItems);
