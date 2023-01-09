@@ -5,6 +5,8 @@ var ipc = require('electron').ipcMain;
 var os = require('os');
 var {dialog} = require('electron');
 
+var mainWindow = null;
+
 
 let win;
 let win3;
@@ -12,14 +14,8 @@ const menuItems = [
     {
         label: "Home",
         click: async () => {
-            const winHome = new BrowserWindow({
-                height: 300,
-                weight: 400,
-                show: false,
-                backgroundColor: '#2e2c29',
-            }); 
-            winHome.loadFile('src/hotelComponents/home.html')  
-            winHome.once('ready-to-show', () => winHome.show()); 
+            mainWindow.loadFile('src/hotelComponents/home.html')  
+            mainWindow.once('ready-to-show', () => mainWindow.show()); 
         }
     },
     {
@@ -27,15 +23,9 @@ const menuItems = [
         submenu: [
             {
                 label: "Contact Us",
-                click: async () => {
-                    const winContact = new BrowserWindow({
-                        height: 1200,
-                        weight: 1600,
-                        show: false,
-                        backgroundColor: '#2e2c29',
-                    }); 
-                    winContact.loadFile('src/hotelComponents/contact.html')  
-                    winContact.once('ready-to-show', () => winContact.show()); 
+                click: async () => {                    
+                    mainWindow.loadFile('src/hotelComponents/contact.html')  
+                    mainWindow.once('ready-to-show', () => mainWindow.show()); 
                 }
             },
             {
@@ -43,15 +33,9 @@ const menuItems = [
             },
             {
                 label: "Gallery",
-                click: async () => {
-                    const winContact = new BrowserWindow({
-                        height: 1200,
-                        weight: 1600,
-                        show: false,
-                        backgroundColor: '#2e2c29',
-                    }); 
-                    winContact.loadFile('src/hotelComponents/gallery.html')  
-                    winContact.once('ready-to-show', () => winContact.show()); 
+                click: async () => {                    
+                    mainWindow.loadFile('src/hotelComponents/gallery.html')  
+                    mainWindow.once('ready-to-show', () => mainWindow.show()); 
                 }
             }
         ]
@@ -62,14 +46,8 @@ const menuItems = [
             {
                 label: "1 seated",
                 click: async () => {
-                    const winContact = new BrowserWindow({
-                        height: 1200,
-                        weight: 1600,
-                        show: false,
-                        backgroundColor: '#2e2c29',
-                    }); 
-                    winContact.loadFile('src/hotelComponents/reservation.html')  
-                    winContact.once('ready-to-show', () => winContact.show()); 
+                    mainWindow.loadFile('src/hotelComponents/reservation.html')  
+                    mainWindow.once('ready-to-show', () => mainWindow.show()); 
                 }
             },
             {
@@ -78,14 +56,8 @@ const menuItems = [
             {
                 label: "2 seated",
                 click: async () => {
-                    const winContact = new BrowserWindow({
-                        height: 1200,
-                        weight: 1600,
-                        show: false,
-                        backgroundColor: '#2e2c29',
-                    }); 
-                    winContact.loadFile('src/hotelComponents/reservation.html')  
-                    winContact.once('ready-to-show', () => winContact.show()); 
+                    mainWindow.loadFile('src/hotelComponents/reservation.html')  
+                    mainWindow.once('ready-to-show', () => mainWindow.show()); 
                 }
             },
             {
@@ -93,15 +65,9 @@ const menuItems = [
             },
             {
                 label: "4 seated",
-                click: async () => {
-                    const winContact = new BrowserWindow({
-                        height: 1200,
-                        weight: 1600,
-                        show: false,
-                        backgroundColor: '#2e2c29',
-                    }); 
-                    winContact.loadFile('src/hotelComponents/reservation.html')  
-                    winContact.once('ready-to-show', () => winContact.show()); 
+                click: async () => {                     
+                    mainWindow.loadFile('src/hotelComponents/reservation.html')  
+                    mainWindow.once('ready-to-show', () => mainWindow.show()); 
                 }
             }
         ]
@@ -109,20 +75,11 @@ const menuItems = [
     {
         label: "Open Camera",
         click: async () => {
-             win3 = new BrowserWindow({
-                height: 300,
-                weight: 400,
-                show: false,
-                movable: false,
-                parent:win,
-                modal:false 
-            }); 
-            win3.webContents.openDevTools();
-            win3.loadFile('src/Camera/camera.html')  
-            win3.once('ready-to-show', () => win3.show()); 
-            win3.on('closed',()=>{
-                
-                win3=null;
+            mainWindow.webContents.openDevTools();
+            mainWindow.loadFile('src/Camera/camera.html')  
+            mainWindow.once('ready-to-show', () => mainWindow.show()); 
+            mainWindow.on('closed',()=> {                
+                mainWindow = null;
               })
         }
     },
@@ -146,40 +103,9 @@ const menuItems = [
     {
         label: "File Upload",
         click: async () => {
-            const winHome = new BrowserWindow({
-                height: 300,
-                weight: 400,
-                show: false,
-                backgroundColor: '#2e2c29',
-            }); 
-            win.webContents.openDevTools();
-            winHome.loadFile('src/FileUpload/fileUpload.html');            
-            winHome.once('ready-to-show', () => winHome.show()); 
-            ipc.on('open-file-dialog-for-file', function(event){
-                //checking the operating system of the user
-                
-                if(os.platform() === 'linux' || os.platform() === 'win32' || os.platform() === 'win64')
-                {
-                    dialog.showOpenDialog({
-                        properties: ['openFile']
-                    }, function(files){
-                        if(files){
-                            event.sender.send('selected-file', files[0])
-                        }
-                    })
-                }
-                else{
-                    //this is mac
-                    dialog.showOpenDialog({
-                        properties:['openFile', 'openDirectory']
-                    }, function(files){
-                        if(files)
-                        {
-                            event.sender.send('selected-file', files[0]);
-                        }
-                    })
-                }
-            })
+            mainWindow.webContents.openDevTools();
+            mainWindow.loadFile('src/FileUpload/fileUpload.html');            
+            mainWindow.once('ready-to-show', () => mainWindow.show());            
         }      
 
     }
@@ -188,35 +114,84 @@ const menuItems = [
 const menu = Menu.buildFromTemplate(menuItems);
 Menu.setApplicationMenu(menu);
 
-const createWindow = () => {
-   win = new BrowserWindow({
-    width: 1600,
-    height: 1000,
-    webPreferences: {
-        preload: path.join(__dirname, 'preload.js'),
-      },
-  })
+app.on('ready', function(){
+    
+    //initializing the window
+    mainWindow = new BrowserWindow({
+        resizable: true,
+        height: 1600,
+        width: 1000,
+        webPreferences:{
+            nodeIntegration: true
+        }
+    })
+    
+    mainWindow.webContents.openDevTools();
+    mainWindow.loadFile('src/hotelComponents/home.html');
+    mainWindow.on('closed', function(){
+        
+        //making the main window to null
+        mainWindow = null;
+    })
 
-  win.loadFile('src/hotelComponents/home.html');
-  win.on('closed',()=>{
-    win=null;
-    win3=null;
-  })
-}
+    //retrieve the event that is send by the renderer process
+    ipc.on('open-file-dialog-for-file', function(event){
+        //checking the operating system of the user
+        
+        if(os.platform() === 'linux' || os.platform() === 'win32' || os.platform() === 'win64')
+        {
+            dialog.showOpenDialog({
+                properties: ['openFile']
+            }, function(files){
+                if(files){
+                    event.sender.send('selected-file', files[0])
+                }
+            })
+        }
+        else{
+            //this is mac
+            dialog.showOpenDialog({
+                properties:['openFile', 'openDirectory']
+            }, function(files){
+                if(files)
+                {
+                    event.sender.send('selected-file', files[0]);
+                }
+            })
+        }
+    })
 
-
-app.whenReady().then(() => {
-    createWindow();
-  
-    app.on('activate', () => {
-      if (BrowserWindow.getAllWindows().length === 0) {
-        createWindow();
-      }
-    });
-  });
-
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit()
-    }    
 })
+
+// const createWindow = () => {
+//    win = new BrowserWindow({
+//     width: 1600,
+//     height: 1000,
+//     webPreferences: {
+//         preload: path.join(__dirname, 'preload.js'),
+//       },
+//   })
+
+//   win.loadFile('src/hotelComponents/home.html');
+//   win.on('closed',()=>{
+//     win=null;
+//     win3=null;
+//   })
+// }
+
+
+// app.whenReady().then(() => {
+//     createWindow();
+  
+//     app.on('activate', () => {
+//       if (BrowserWindow.getAllWindows().length === 0) {
+//         createWindow();
+//       }
+//     });
+//   });
+
+// app.on('window-all-closed', () => {
+//     if (process.platform !== 'darwin') {
+//         app.quit()
+//     }    
+// })
